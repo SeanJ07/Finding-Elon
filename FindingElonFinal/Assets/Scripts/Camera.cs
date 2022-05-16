@@ -11,6 +11,12 @@ public class Camera : MonoBehaviour
 
     public Vector2 posOffset;
 
+    public float leftLimit;
+    public float rightLimit;
+    public float bottomLimit;
+    public float topLimit;
+    internal static object main;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +39,18 @@ public class Camera : MonoBehaviour
         transform.position = Vector3.Lerp(startPos, endPos, timeOffset * Time.deltaTime);
 
 
+        transform.position = new Vector3
+            (
+            Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+            Mathf.Clamp(transform.position.y, bottomLimit, topLimit),
+            transform.position.z
+            );
+    }
+    void OnDrawGizmos()
+    {
+        //draw a box around our camera boundary
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(rightLimit, topLimit));
+        Gizmos.DrawLine(new Vector2(rightLimit,topLimit),new Vector2(leftLimit, topLimit));
     }
 }

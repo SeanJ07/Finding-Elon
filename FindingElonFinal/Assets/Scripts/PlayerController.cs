@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
