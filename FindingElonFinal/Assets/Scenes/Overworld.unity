@@ -1106,7 +1106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210938679}
   m_Layer: 0
-  m_Name: FeetPos
+  m_Name: feetPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1120,7 +1120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210938678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08880331, y: -0.37, z: -314.75168}
+  m_LocalPosition: {x: 0.056, y: -0.332, z: -314.75168}
   m_LocalScale: {x: 0.15310916, y: 0.1345679, z: 1}
   m_Children: []
   m_Father: {fileID: 1224887124}
@@ -1139,8 +1139,9 @@ GameObject:
   - component: {fileID: 1224887125}
   - component: {fileID: 1224887127}
   - component: {fileID: 1224887126}
+  - component: {fileID: 1224887128}
   m_Layer: 0
-  m_Name: Sporkbonk
+  m_Name: Foon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1186,7 +1187,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d24da256e5681454ead2011ba8d256e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa6f149c5fa386c47b55ad63068970fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1227,11 +1228,12 @@ MonoBehaviour:
   speed: 15
   jumpForce: 19
   feetPos: {fileID: 1210938679}
-  checkRadius: 1
+  checkRadius: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   jumpTime: 1
+  vertical: 0
 --- !u!50 &1224887126
 Rigidbody2D:
   serializedVersion: 4
@@ -1270,7 +1272,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.72, y: 0.88}
+    oldSize: {x: 0.6, y: 0.88}
     newSize: {x: 0.72, y: 0.88}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1279,6 +1281,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.72, y: 0.88}
   m_EdgeRadius: 0
+--- !u!95 &1224887128
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224887122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d6be4eaa848f3c4e802590bb7772b3e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1367157755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8437032230193810523, guid: eaf7ab74fe0ef5545bd2d17215fe44e9, type: 3}
