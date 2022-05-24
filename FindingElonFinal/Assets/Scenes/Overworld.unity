@@ -630,7 +630,7 @@ MonoBehaviour:
   leftLimit: -19.6
   rightLimit: 22.9
   bottomLimit: -7.5
-  topLimit: 100
+  topLimit: 5000
 --- !u!1001 &323776815
 PrefabInstance:
   m_ObjectHideFlags: 0
