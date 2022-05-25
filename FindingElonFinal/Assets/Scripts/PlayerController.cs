@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     int direction = 1;
     public float speed;
     public float jumpForce;
-    private float moveInput;
 
+    private float moveInput;
    private bool isGrounded;
     public Transform feetPos;
     public float checkRadius;
@@ -35,21 +35,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 position = rb.position;
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        if (vertical)
-        {
-            position.y = position.y + Time.deltaTime * speed * direction;
-            animator.SetFloat("MoveX", 0);
-            animator.SetFloat("MoveY", direction);
-        }
-        else
-        {
-            position.x = position.x + Time.deltaTime * speed * direction;
-            animator.SetFloat("MoveX", direction);
-            animator.SetFloat("MoveY", 0);
-        }
+        moveInput = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
     // Update is called once per frame
     void Update()
