@@ -21,13 +21,15 @@ public class PlayerController : MonoBehaviour
     public bool vertical;
     private bool isJumping;
 
-   
+    private AudioSource playerAudio;
+    public AudioClip jumpSound;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();  
+        animator = GetComponent<Animator>();
+        playerAudio = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -39,14 +41,14 @@ public class PlayerController : MonoBehaviour
         if (vertical)
         {
             position.y = position.y + Time.deltaTime * speed * direction;
-            animator.SetFloat("Move X", 0);
-            animator.SetFloat("Move Y", direction);
+            animator.SetFloat("MoveX", 0);
+            animator.SetFloat("MoveY", direction);
         }
         else
         {
             position.x = position.x + Time.deltaTime * speed * direction;
-            animator.SetFloat("Move X", direction);
-            animator.SetFloat("Move Y", 0);
+            animator.SetFloat("MoveX", direction);
+            animator.SetFloat("MoveY", 0);
         }
     }
     // Update is called once per frame
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
         if (Input.GetKey(KeyCode.Space) && isJumping == true)
         {
