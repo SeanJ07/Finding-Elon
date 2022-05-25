@@ -60,8 +60,6 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
             rb.velocity = Vector2.up * jumpForce;
             playerAudio.PlayOneShot(jumpSound, 1.0f);
-            animator.SetBool ("IsJumping", true);
-           
         }
         if (Input.GetKey(KeyCode.Space) && isJumping == true)
         {
@@ -69,21 +67,31 @@ public class PlayerController : MonoBehaviour
             {
               rb.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
+                animator.SetBool("IsJumping", true);
             }
             else
             {
                 isJumping = false;
-                
             }
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false; 
         }
-        if (isGrounded == false && jumpTimeCounter !> .01 && isJumping == false)
+        if (isGrounded == false && jumpTimeCounter < .01)
         {
             animator.SetBool("IsJumping", false);
             animator.SetBool("isFalling", true);
+        }
+        else if (Input.GetKey(KeyCode.Space) == false)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("isFalling", true);
+        }
+        if (isGrounded == true && isJumping == false)
+        {
+            animator.SetBool("IsJumping", false);
+            animator.SetBool("isFalling", false);
         }
     }
 
